@@ -10,6 +10,7 @@ const modal = document.getElementById("modal");
 const qimg = document.getElementById("question-image");
 const input = document.getElementById("answer-input");
 
+const answerListBtn = document.getElementById("answerListBtn");
 const undoBtn = document.getElementById("undoBtn");
 const resetBtn = document.getElementById("resetBtn");
 
@@ -86,6 +87,8 @@ board.style.pointerEvents="none";
 document.getElementById("modal-content").style.display="flex";
 document.getElementById("modal-content").style.flexDirection="column";
 document.getElementById("modal-content").style.alignItems="center";
+document.getElementById("modal-content").style.background="transparent";
+document.getElementById("modal-content").style.padding="0";
 
 
 /* =====================================================
@@ -187,8 +190,33 @@ input.addEventListener("keydown",e=>{
  }
 });
 
+
 modal.onclick=e=>{
  if(e.target===modal) modal.classList.add("hidden");
+};
+
+document.addEventListener("keydown",e=>{
+
+  if(e.key==="Tab" && !modal.classList.contains("hidden")){
+    e.preventDefault();
+    input.focus();
+  }
+
+});
+
+answerListBtn.onclick=()=>{
+
+ let list = questions
+   .filter(q=>q.cleared)
+   .map(q=>q.answer);
+
+ if(list.length===0){
+   alert("まだ解答済みの問題はありません");
+   return;
+ }
+
+ alert(list.join("\n"));
+
 };
 
 
