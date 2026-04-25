@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>cROssWo_rd</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="wrapper">
+
+  <!-- 最奥 -->
+  <img id="final-image" src="images/final.png">
+
+  <!-- 中段：駒など -->
+  <canvas id="play-layer" width="950" height="950"></canvas>
+
+  <!-- 最前面：27問 -->
+  <div id="board"></div>
+
+</div>
+
+<div id="modal" class="hidden">
+  <div id="modal-content">
+    <img id="question-image">
+    <input id="answer-input" placeholder="答え">
+  </div>
+</div>
+
+<div id="buttons">
+  <button id="undoBtn">一つ戻す</button>
+  <button id="resetBtn">リセット</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
