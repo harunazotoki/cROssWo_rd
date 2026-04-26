@@ -1,5 +1,6 @@
 #modal.hidden { display: none; }
 
+
 body{
   margin:0;
   background:#ddd;
@@ -83,4 +84,43 @@ button{
   font-size:18px;
   margin:0 10px;
   padding:8px 18px;
+}
+
+
+#answer-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:99999;
+}
+
+#answer-box{
+  background:white;
+  width:420px;
+  max-width:90vw;
+  max-height:80vh;
+  padding:16px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+
+#answer-text{
+  white-space:pre-wrap;
+  overflow:auto;
+  flex:1;
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:12px;
+}
+
+.hidden{
+  display:none;
+}
+
+#answer-modal.hidden{
+  display:none;
 }
