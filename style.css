@@ -11,7 +11,7 @@
 <div id="wrapper">
 
   <!-- 最奥 -->
-  <img id="final-image" src="images/final.png">
+  <img id="final-image" src="final.png">
 
   <!-- 中段：駒など -->
   <canvas id="play-layer" width="950" height="950"></canvas>
