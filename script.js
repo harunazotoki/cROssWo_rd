@@ -15,6 +15,11 @@ const undoBtn = document.getElementById("undoBtn");
 const resetBtn = document.getElementById("resetBtn");
 
 
+const answerModal = document.getElementById("answer-modal");
+const answerText = document.getElementById("answer-text");
+const closeAnswerBtn = document.getElementById("closeAnswerBtn");
+
+
 /* =====================================================
 全体サイズ（ここを変える）
 ===================================================== */
@@ -191,9 +196,11 @@ input.addEventListener("keydown",e=>{
 });
 
 
-modal.onclick=e=>{
- if(e.target===modal) modal.classList.add("hidden");
-};
+modal.addEventListener("click",e=>{
+  if(e.target === modal){
+    modal.classList.add("hidden");
+  }
+});
 
 document.addEventListener("keydown",e=>{
 
@@ -204,19 +211,24 @@ document.addEventListener("keydown",e=>{
 
 });
 
-answerListBtn.onclick=()=>{
+
+answerListBtn.onclick = ()=>{
 
  let list = questions
    .filter(q=>q.cleared)
-   .map(q=>q.answer);
+   .map((q,i)=>`${i+1}. ${q.answer}`);
 
  if(list.length===0){
-   alert("まだ解答済みの問題はありません");
-   return;
+   answerText.textContent = "まだ解答済みの問題はありません";
+ }else{
+   answerText.textContent = list.join("\n");
  }
 
- alert(list.join("\n"));
+ answerModal.classList.remove("hidden");
+};
 
+closeAnswerBtn.onclick = ()=>{
+  answerModal.classList.add("hidden");
 };
 
 
